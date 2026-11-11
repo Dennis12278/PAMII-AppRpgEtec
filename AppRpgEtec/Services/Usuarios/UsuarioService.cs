@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using System.Threading.Tasks; // Certifique-se de ter essa namespace para os métodos Async
+using System.Threading.Tasks; 
 
 namespace AppRpgEtec.Services.Usuarios
 {
