@@ -8,7 +8,14 @@
     xmlns:viewsArmas="clr-namespace:AppRpgEtec.Views.Armas"
     xmlns:viewsUsuarios="clr-namespace:AppRpgEtec.Views.Usuarios"
     xmlns:viewsDisputas="clr-namespace:AppRpgEtec.Views.Disputas"
+    xmlns:conv="clr-namespace:AppRpgEtec.Converters"
     Title="AppRpgEtec">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <conv:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </Shell.Resources>
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -19,9 +26,9 @@
                     <RowDefinition Height="40"></RowDefinition>
                 </Grid.RowDefinitions>
                 <FlexLayout Grid.Row="0" Direction="Row" AlignItems="Center" >
-                    <Frame Padding="0" CornerRadius="40"
+                    <Frame Padding="-20" CornerRadius="40"
                         HeightRequest="80" WidthRequest="80" >
-                        <Image Source="has_logo_tranparente.svg"/>
+                        <Image Source="{Binding Foto, Converter={StaticResource ByteArrayToImage}}"/>
                     </Frame>
                     <VerticalStackLayout Padding="10,0,0,0" Spacing="0">
                         <Label Text="App RPG Etec" FontAttributes="Bold" FontSize="Medium" />
@@ -40,7 +47,7 @@
         <ShellContent Title="Imagem do Usuário" Route="usuario"
                       ContentTemplate="{DataTemplate viewsUsuarios:ImagemUsuarioView}" />
 
-        <ShellContent Title="Personagens" Icon="menupersonagens.png" 
+        <ShellContent Title="Personagens" Icon="menupersonagens.svg" 
                   ContentTemplate="{DataTemplate viewsPersonagens:ListagemView}" />
 
         <ShellContent
@@ -59,7 +66,7 @@
         </Tab>
     </FlyoutItem>
 
-    <ShellContent Title="Sair" Icon="Exit.png" ContentTemplate="{DataTemplate viewsUsuarios:LoginView}" 
+    <ShellContent Title="Sair" Icon="exit.svg" ContentTemplate="{DataTemplate viewsUsuarios:LoginView}" 
                   Shell.FlyoutBehavior="Disabled" />
 
     <Shell.FlyoutFooter>
